@@ -21,3 +21,24 @@ function addTask() {
 function deleteTask(button) {
     button.parentElement.remove();
 }
+
+
+
+// TOGGLE DARK MODE
+const toggleSwitch = document.getElementById("darkModeToggle");
+
+// Charger le thème sauvegardé
+if (localStorage.getItem("darkMode") === "enabled") {
+  document.body.classList.add("dark-mode");
+  toggleSwitch.checked = true;
+}
+
+toggleSwitch.addEventListener("change", function () {
+  if (this.checked) {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("darkMode", "enabled");
+  } else {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("darkMode", "disabled");
+  }
+});
