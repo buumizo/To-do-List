@@ -1,51 +1,45 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+body{
+margin:0;
+padding:0;
+font-family:Arial, sans-serif;
 
-    /* Background Image */
-    background: url("close-up-detail-team-working-o-new-project-coworking-space-writing-ideas-looking-through-graphics-tablet-laptop-teamwork-business-concept.jpg") no-repeat center center/cover;
-    
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+background:url("close-up-detail-team-working-o-new-project-coworking-space-writing-ideas-looking-through-graphics-tablet-laptop-teamwork-business-concept.jpg") no-repeat center center/cover;
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-/* Dark overlay for better visibility */
-body::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    top: 0;
-    left: 0;
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+top:0;
+left:0;
 }
 
-/* Glass Card */
-.container {
-    position: relative;
-    z-index: 1;
+.container{
+position:relative;
+z-index:1;
 
-    width: 400px;
-    padding: 30px;
-    border-radius: 20px;
+width:400px;
+padding:30px;
+border-radius:20px;
 
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
 
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+border:1px solid rgba(255,255,255,0.3);
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
 
-    color: white;
+color:white;
 }
 
-/* Title */
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+h1{
+text-align:center;
 }
 
 .task-input{
@@ -61,85 +55,92 @@ border:none;
 outline:none;
 }
 
-.task-input button {
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: none;
-    background: #00c6ff;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+.task-input button{
+padding:10px 15px;
+border:none;
+border-radius:10px;
+background:#00c6ff;
+color:white;
+cursor:pointer;
+font-weight:bold;
 }
 
-.task-input button:hover {
-    background: #0072ff;
+ul{
+list-style:none;
+padding:0;
+margin-top:20px;
 }
 
-ul {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+li{
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,0.2);
+padding:10px;
+border-radius:10px;
+margin-top:10px;
 }
 
-li {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+li div{
+display:flex;
+gap:5px;
 }
 
-.delete-btn {
-    background: #ff4b5c;
-    color: white;
-    border: none;
-    padding: 5px 8px;
-    border-radius: 5px;
-    cursor: pointer;
+.completed{
+text-decoration:line-through;
+opacity:0.6;
 }
 
-
-/*
-dark mode
-*/
-
-body.dark-mode {
-  background: url("close-up-detail-team-working-o-new-project-coworking-space-writing-ideas-looking-through-graphics-tablet-laptop-teamwork-business-concept.jpg") no-repeat center center/cover;
-  transition: background 0.5s;
+button{
+border:none;
+padding:5px 8px;
+border-radius:5px;
+cursor:pointer;
 }
 
-body.dark-mode .container {
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.1);
+.edit-btn{
+background:#00c6ff;
+color:white;
 }
 
-body.dark-mode input {
-  background-color: rgba(255,255,255,0.1);
-  color: white;
+.delete-btn{
+background:#ff4b5c;
+color:white;
 }
 
-body.dark-mode button {
-  background-color: #222;
-  color: white;
+.complete-btn{
+background:#4CAF50;
+color:white;
 }
 
-body.dark-mode input {
-  border: 1px solid #555;
+/* DARK MODE */
+
+body.dark-mode{
+background:#121212;
 }
 
-/* THEME SWITCH */
-.theme-switch {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-  font-family: sans-serif;
-  position: absolute;
-  top: 10px;
-  right: 2px;
+body.dark-mode .container{
+background:rgba(0,0,0,0.5);
+}
+
+body.dark-mode input{
+background:rgba(255,255,255,0.1);
+color:white;
+border:1px solid #555;
+}
+
+body.dark-mode button{
+background:#333;
+color:white;
+}
+
+/* SWITCH */
+
+.theme-switch{
+position:absolute;
+top:10px;
+right:10px;
 }
 
 .switch{
@@ -153,63 +154,30 @@ height:26px;
 display:none;
 }
 
-/* SLIDER */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  background-color: #ccc;
-  border-radius: 34px;
-  top: 0; left: 0; right: 0; bottom: 0;
-  transition: 0.4s;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 5px;
-  font-size: 14px;
+.slider{
+position:absolute;
+cursor:pointer;
+background:#ccc;
+border-radius:34px;
+top:0;
+left:0;
+right:0;
+bottom:0;
+transition:0.4s;
 }
 
-.slider::before {
-  content: "";
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.4s;
-  z-index: 2;
+.slider::before{
+content:"";
+position:absolute;
+height:20px;
+width:20px;
+left:3px;
+bottom:3px;
+background:white;
+border-radius:50%;
+transition:0.4s;
 }
 
-ion-icon{
-  pointer-events: none;
-  z-index: 1;
-  transition: opacity 0.4s;
-
-}
-
-.moon{
-    color: teal;
-}
-
-.sun{
-    color: orange;
-}
-
-
-/* TOGGLE CHECKED */
-input:checked + .slider::before {
-  transform: translateX(24px);
-}
-
-input:checked + .slider .sun {
-  opacity: 0;
-}
-
-input:checked + .slider .moon {
-  opacity: 1;
-}
-
-input:checked + .slider {
-  background-color: #4CAF50;
+input:checked + .slider::before{
+transform:translateX(24px);
 }
