@@ -33,6 +33,29 @@
 </div>
 
 <ul id="taskList"></ul>
+    <div class="theme-switch">
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider">
+                <span><ion-icon class="icon sun" name="sunny-outline"></ion-icon></span>
+                <span><ion-icon class="icon moon" name="moon-outline"></ion-icon></span>
+            </span>
+        </label>
+    </div>
+
+    <h1>Group To-Do Task List</h1>
+
+    <div class="task-input">
+        <input type="text" id="taskInput" placeholder="Enter your task">
+        <input type="date" id="dueDateInput">
+        <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search tasks..." onkeyup="searchTasks()">
+    </div>
+
+    <ul id="taskList"></ul>
 
 </div>
 

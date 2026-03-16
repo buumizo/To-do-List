@@ -63,6 +63,36 @@ background:#00c6ff;
 color:white;
 cursor:pointer;
 font-weight:bold;
+/* date input shouldn't stretch too far */
+.task-input input[type="date"] {
+    flex: 0 0 150px;
+}
+
+/* due date badge inside task item */
+.due-date {
+    font-size: 0.9em;
+    margin-left: -20px;
+    color: #222;
+}
+
+/* group task text and due date */
+.task-info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    
+}
+
+.task-input button {
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: none;
+    background: #00c6ff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-left: -5px; /* move button slightly left */
 }
 
 ul{

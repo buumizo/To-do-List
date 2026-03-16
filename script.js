@@ -2,17 +2,32 @@ const taskList = document.getElementById("taskList");
 const toggleSwitch = document.getElementById("darkModeToggle");
 
 /* LOAD SAVED TASKS */
+    let taskInput = document.getElementById("taskInput");
+    let taskValue = taskInput.value;
+    let dueDateInput = document.getElementById("dueDateInput");
+    let dueDateValue = dueDateInput.value; // format: yyyy-mm-dd
 
 document.addEventListener("DOMContentLoaded", loadTasks);
 
 function loadTasks(){
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let li = document.createElement("li");
+    // include due date if provided, wrap text elements together
+    li.innerHTML = `
+        <div class="task-info">
+            <span class="task-text">${taskValue}</span>
+            ${dueDateValue ? `<span class="due-date">Due: ${dueDateValue}</span>` : ""}
+        </div>
+        <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+    `;
 
 tasks.forEach(task => {
 createTaskElement(task.text, task.completed);
 });
 
+    taskInput.value = "";
+    dueDateInput.value = ""; // reset date field
 }
 
 /* SAVE TASKS */
