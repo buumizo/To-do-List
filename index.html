@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Group To-Do Task List</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>Group To-Do Task List</title>
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </head>
 
 <body>
 
 <div class="container">
 
+<div class="theme-switch">
+<label class="switch">
+<input type="checkbox" id="darkModeToggle">
+<span class="slider">
+<span><ion-icon class="icon sun" name="sunny-outline"></ion-icon></span>
+<span><ion-icon class="icon moon" name="moon-outline"></ion-icon></span>
+</span>
+</label>
+</div>
+
+<h1>Group To-Do Task List</h1>
+
+<div class="task-input">
+<input type="text" id="taskInput" placeholder="Enter your task">
+<button onclick="addTask()">Add</button>
+</div>
+
+<ul id="taskList"></ul>
     <div class="theme-switch">
         <label class="switch">
             <input type="checkbox" id="darkModeToggle">
