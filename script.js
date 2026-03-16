@@ -2,6 +2,8 @@ function addTask() {
 
     let taskInput = document.getElementById("taskInput");
     let taskValue = taskInput.value;
+    let dueDateInput = document.getElementById("dueDateInput");
+    let dueDateValue = dueDateInput.value; // format: yyyy-mm-dd
 
     if(taskValue === "") {
         alert("Please enter a task");
@@ -9,13 +11,18 @@ function addTask() {
     }
 
     let li = document.createElement("li");
+    // include due date if provided, wrap text elements together
     li.innerHTML = `
-        ${taskValue}
+        <div class="task-info">
+            <span class="task-text">${taskValue}</span>
+            ${dueDateValue ? `<span class="due-date">Due: ${dueDateValue}</span>` : ""}
+        </div>
         <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
     `;
 
     document.getElementById("taskList").appendChild(li);
     taskInput.value = "";
+    dueDateInput.value = ""; // reset date field
 }
 
 function deleteTask(button) {

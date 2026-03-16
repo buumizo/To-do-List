@@ -62,6 +62,25 @@ h1 {
     outline: none;
 }
 
+/* date input shouldn't stretch too far */
+.task-input input[type="date"] {
+    flex: 0 0 150px;
+}
+
+/* due date badge inside task item */
+.due-date {
+    font-size: 0.9em;
+    margin-left: 10px;
+    color: #222;
+}
+
+/* group task text and due date */
+.task-info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .task-input button {
     padding: 10px 15px;
     border-radius: 10px;
