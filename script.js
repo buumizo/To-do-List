@@ -5,7 +5,7 @@ function addTask() {
     let dueDateInput = document.getElementById("dueDateInput");
     let dueDateValue = dueDateInput.value; // format: yyyy-mm-dd
 
-    if(taskValue === "") {
+    if (taskValue === "") {
         alert("Please enter a task");
         return;
     }
@@ -21,6 +21,7 @@ function addTask() {
     `;
 
     document.getElementById("taskList").appendChild(li);
+
     taskInput.value = "";
     dueDateInput.value = ""; // reset date field
 }
@@ -29,23 +30,42 @@ function deleteTask(button) {
     button.parentElement.remove();
 }
 
+function searchTasks() {
+
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let tasks = document.querySelectorAll("#taskList li");
+
+    tasks.forEach(task => {
+
+        let text = task.textContent.toLowerCase();
+
+        if (text.includes(input)) {
+            task.style.display = "";
+        } else {
+            task.style.display = "none";
+        }
+
+    });
+}
 
 
-// TOGGLE DARK MODE
+// DARK MODE
+
 const toggleSwitch = document.getElementById("darkModeToggle");
 
-// Charger le thème sauvegardé
 if (localStorage.getItem("darkMode") === "enabled") {
-  document.body.classList.add("dark-mode");
-  toggleSwitch.checked = true;
+    document.body.classList.add("dark-mode");
+    toggleSwitch.checked = true;
 }
 
 toggleSwitch.addEventListener("change", function () {
-  if (this.checked) {
-    document.body.classList.add("dark-mode");
-    localStorage.setItem("darkMode", "enabled");
-  } else {
-    document.body.classList.remove("dark-mode");
-    localStorage.setItem("darkMode", "disabled");
-  }
+
+    if (this.checked) {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", "disabled");
+    }
+
 });
