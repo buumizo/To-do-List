@@ -91,19 +91,48 @@ function searchTasks() {
 
 const toggleSwitch = document.getElementById("darkModeToggle");
 
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-    toggleSwitch.checked = true;
-}
-
-toggleSwitch.addEventListener("change", function () {
-
-    if (this.checked) {
+function setDarkMode(enabled) {
+    if (enabled) {
         document.body.classList.add("dark-mode");
         localStorage.setItem("darkMode", "enabled");
+        toggleSwitch.checked = true;
     } else {
         document.body.classList.remove("dark-mode");
         localStorage.setItem("darkMode", "disabled");
+        toggleSwitch.checked = false;
+    }
+}
+
+function initializeTheme() {
+    const storedMode = localStorage.getItem("darkMode");
+
+    if (storedMode === "enabled") {
+        setDarkMode(true);
+    } else {
+        setDarkMode(false);
+    }
+}
+
+initializeTheme();
+
+toggleSwitch.addEventListener("change", function () {
+    setDarkMode(this.checked);
+});
+
+// Accessibility: use Enter key to add a task (no Add button needed)
+function enableEnterToAdd() {
+    const taskInput = document.getElementById("taskInput");
+    const dueDateInput = document.getElementById("dueDateInput");
+
+    function onEnter(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            addTask();
+        }
     }
 
-});
+    if (taskInput) taskInput.addEventListener("keydown", onEnter);
+    if (dueDateInput) dueDateInput.addEventListener("keydown", onEnter);
+}
+
+enableEnterToAdd();
