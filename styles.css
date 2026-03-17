@@ -25,13 +25,12 @@ left:0;
 position: relative;
 z-index: 1;
 
-width: 400px;
+width: 420px;
 padding: 30px;
 border-radius: 20px;
 
 background: rgba(255,255,255,0.15);
 backdrop-filter: blur(15px);
--webkit-backdrop-filter: blur(15px);
 
 border: 1px solid rgba(255,255,255,0.3);
 box-shadow: 0 8px 32px rgba(0,0,0,0.3);
@@ -57,43 +56,25 @@ border:none;
 outline:none;
 }
 
-/* date input shouldn't stretch too far */
-.task-input input[type="date"] {
-    flex: 0 0 150px;
+.task-input input[type="date"]{
+flex:0 0 150px;
 }
 
-/* due date badge inside task item */
-.due-date {
-    font-size: 0.8em;
-    margin-center: -5px;
-    color: #222;
-}
-
-/* group task text and due date */
-.task-info {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    
-}
-
-.task-input button {
-    padding: 10px 10px;
-    border-radius: 5px;
-    border: none;
-    background: #00c6ff;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-    margin-left: -5px; /* move button slightly left */
+.task-input button{
+padding:10px 12px;
+border-radius:8px;
+border:none;
+background:#00c6ff;
+color:white;
+cursor:pointer;
+font-weight:bold;
 }
 
 .task-input button:hover{
 background:#0072ff;
 }
 
-/* SEARCH BOX */
+/* SEARCH */
 
 .search-box{
 margin-top:15px;
@@ -108,6 +89,8 @@ border:none;
 outline:none;
 }
 
+/* TASK LIST */
+
 ul{
 margin-top:20px;
 padding:0;
@@ -119,19 +102,32 @@ background: rgba(255,255,255,0.2);
 padding:10px;
 margin-top:10px;
 border-radius:10px;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+gap:10px;
 }
 
-.delete-btn{
-background:#ff4b5c;
-color:white;
-border:none;
-padding:5px 8px;
-border-radius:5px;
-cursor:pointer;
-margin-left:8px;
+.task-info{
+display:flex;
+flex-direction:column;
+}
+
+.task-text{
+font-weight:bold;
+}
+
+.due-date{
+font-size:0.8em;
+color:#222;
+}
+
+/* BUTTONS */
+
+.action-buttons{
+display:flex;
+gap:6px;
 }
 
 .edit-btn{
@@ -143,11 +139,16 @@ border-radius:5px;
 cursor:pointer;
 }
 
-.action-buttons{
-display:flex;
-justify-content:flex-end;
-align-items:center;
-gap:6px;
+.delete-btn{
+background:#ff4b5c;
+color:white;
+border:none;
+padding:5px 8px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* DARK MODE */
 
 body.dark-mode .container{
 background: rgba(0,0,0,0.4);
@@ -155,26 +156,24 @@ border:1px solid rgba(255,255,255,0.1);
 }
 
 body.dark-mode input{
-background-color: rgba(255,255,255,0.1);
+background: rgba(255,255,255,0.1);
 color:white;
 border:1px solid #555;
 }
 
 body.dark-mode button{
-background-color:#222;
+background:#222;
 color:white;
 }
 
-/* THEME SWITCH */
+/* SWITCH */
 
 .theme-switch{
 display:flex;
 align-items:center;
-gap:10px;
-margin-bottom:15px;
 position:absolute;
 top:10px;
-right:2px;
+right:10px;
 }
 
 .switch{
@@ -197,7 +196,6 @@ top:0;
 left:0;
 right:0;
 bottom:0;
-transition:0.4s;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -214,34 +212,61 @@ bottom:3px;
 background:white;
 border-radius:50%;
 transition:0.4s;
-z-index:2;
-}
-
-ion-icon{
-pointer-events:none;
-z-index:1;
-}
-
-.moon{
-color:teal;
-}
-
-.sun{
-color:orange;
 }
 
 input:checked + .slider::before{
 transform:translateX(24px);
 }
 
-input:checked + .slider .sun{
-opacity:0;
+.sun{
+color:orange;
 }
 
-input:checked + .slider .moon{
-opacity:1;
+.moon{
+color:teal;
 }
 
-input:checked + .slider{
-background-color:#4CAF50;
+/* RESPONSIVENESS */
+
+@media (max-width: 500px) {
+
+.container {
+width: 90%;
+padding: 20px;
+}
+
+/* Stack inputs vertically */
+.task-input {
+flex-direction: column;
+}
+
+/* Make date input full width */
+.task-input input[type="date"] {
+flex: 1;
+width: 100%;
+}
+
+/* Button full width */
+.task-input button {
+width: 100%;
+}
+
+/* Search bar full width */
+.search-box input {
+width: 100%;
+}
+
+/* Stack task content */
+li {
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+}
+
+/* Buttons move below text */
+.action-buttons {
+width: 100%;
+justify-content: flex-end;
+}
+
 }
